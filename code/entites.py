@@ -1,12 +1,17 @@
 from settings import *
 
-
-class Player(pygame.sprite.Sprite):
-    def __init__(self, pos, groups):
+class Entity(pygame.sprite.Sprite):
+    def __init__(self, pos, frames, groups):
         super().__init__(groups)
-        self.image = pygame.Surface((100,100))
-        self.image.fill('red')
+
+        self.frame_index, self.frames = 0, frames
+
+        self.image = self.frames['down'][self.frame_index]
         self.rect = self.image.get_frect(center = pos)
+
+class Player(Entity):
+    def __init__(self, pos, frames, groups):
+        super().__init__(pos, frames, groups )
 
         self.direction = vector
 

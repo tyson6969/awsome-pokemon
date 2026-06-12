@@ -26,7 +26,10 @@ class Game:
                          'hospital': load_pygame(join( 'data', 'maps', 'hospital.tmx')) }
         
         self.overworld_frames = { 'water': import_folder('graphics', 'tilesets', 'water'),
-                                 'coast': coast_importer(24, 12 , 'graphics' , 'tilesets', 'coast') }
+                                 'coast': coast_importer(24, 12 , 'graphics' , 'tilesets', 'coast'),
+                                 'characters': all_character_import('graphics', 'characters') }
+
+        
         
         
 
@@ -41,7 +44,10 @@ class Game:
 
         for obj in tmx_map.get_layer_by_name("Entities"):
             if obj.name == 'Player' and obj.properties['pos'] == player_start_pos:
-                self.player = Player((obj.x, obj.y), self.all_sprites) 
+                self.player = Player(
+                    pos = (obj.x, obj.y),
+                    frames =  self.overworld_frames['characters']['player'], 
+                    groups = self.all_sprites) 
         
         for obj in tmx_map.get_layer_by_name('Water'):
             for x in range(int(obj.x), int(obj.x + obj.width), TILE_SIZE):
