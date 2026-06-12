@@ -26,11 +26,15 @@ class Entity(pygame.sprite.Sprite):
                 self.facing_direction = 'down' if self.direction.y > 0 else 'up'        
         return f'{self.facing_direction}{'' if moving else '_idle'}'
 
-    
+class Character(Entity):
+    def __init__(self, pos, frames, groups):
+        super().__init__(pos, frames, groups)
+
 
 class Player(Entity):
     def __init__(self, pos, frames, groups):
         super().__init__(pos, frames, groups )
+        
 
         self.direction = vector
 
