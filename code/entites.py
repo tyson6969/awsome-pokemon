@@ -18,9 +18,9 @@ class Player(pygame.sprite.Sprite):
         if keys[pygame.K_s]:
             input_vector.y +=1 
         if keys[pygame.K_d]:
-            input_vector.x -=1 
+            input_vector.x +=1 
         if keys[pygame.K_a]:
-            input_vector.x +=1
+            input_vector.x -=1
         self.direction = input_vector
 
         

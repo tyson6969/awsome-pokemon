@@ -7,6 +7,8 @@ TILE_SIZE = 64
 ANIMATION_SPEED = 6
 BATTLE_OUTLINE_WIDTH = 4
 
+
+
 COLORS = {
 	'white': '#f4fefa', 
 	'pure white': '#ffffff',
