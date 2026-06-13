@@ -2,7 +2,7 @@ from settings import *
 from pytmx.util_pygame import load_pygame 
 from os.path import join
 
-from sprites import Sprite, AnimatedSprite
+from sprites import Sprite, AnimatedSprite, MonsterPatchSprite
 from entites import Player, Character
 from groups import ALLsprites
 from support import *
@@ -57,7 +57,7 @@ class Game:
                 Sprite((obj.x, obj.y), obj.image, self.all_sprites )
 
         for obj in tmx_map.get_layer_by_name("Monsters"):
-            Sprite((obj.x, obj.y), obj.image, self.all_sprites )
+            MonsterPatchSprite((obj.x, obj.y), obj.image, self.all_sprites, obj.properties['biome'] )
 
         for obj in tmx_map.get_layer_by_name("Entities"):
             if obj.name == 'Player' :
